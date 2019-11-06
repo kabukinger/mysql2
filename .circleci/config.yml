@@ -16,11 +16,7 @@ jobs:
       - run:
           command: ls; pwd; ls /usr/bin; ls /usr/sbin; cat /etc/issue
       - run:
-          command: apt-get update && apt-get -y install procps
-      - run:
-          command: apt-get -y install wget
-      - run:
-          command: apt-get -y install sudo
+          command: apt-get update && apt-get -y install procps wget sudo
       - run:
           name: Install dockerize
           command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
