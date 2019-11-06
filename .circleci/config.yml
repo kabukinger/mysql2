@@ -16,6 +16,10 @@ jobs:
       - run:
           command: ls; pwd; ls /usr/bin; ls /usr/sbin; cat /etc/issue
       - run:
+          command: sudo apt-get -y install ps
+      - run:
+          command: ps -ef | grep mysqld
+      - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
       - run: 
