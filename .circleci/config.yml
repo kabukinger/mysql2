@@ -13,6 +13,7 @@ jobs:
     steps:
       - checkout
 
-      - run: 
+      - run:
           command: ps -ef | grep mysql
+      - run: 
           command: mysql -u root -h 127.0.0.1 -D circle_test -e"SELECT Host, User, Password FROM mysql.user;"
