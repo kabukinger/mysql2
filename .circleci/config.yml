@@ -16,7 +16,7 @@ jobs:
       - run:
           command: ls; pwd; ls /usr/bin; ls /usr/sbin; cat /etc/issue
       - run:
-          command: apt-get update && apt-get -y install ps
+          command: apt-get update && apt-get -y install procps
       - run:
           command: ps -ef | grep mysqld
       - run:
