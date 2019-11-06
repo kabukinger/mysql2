@@ -1,2 +1,2 @@
 # mysql
-mysql test
+CircleCIとMySQL連携用のサンプルです。
