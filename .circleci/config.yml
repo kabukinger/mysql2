@@ -8,10 +8,5 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: Greeting
-          command: mysql -u root < check.sql
-
-      - run:
-          name: Print the Current Time
-          command: date
+      - run: |
+          mysql -u root -h 127.0.0.1 -D circle_test -e"SELECT Host, User, Password FROM mysql.user;"
