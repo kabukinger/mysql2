@@ -16,4 +16,4 @@ jobs:
       - run:
           command: ls; pwd; ls /usr/bin; ls /bin
       - run: 
-          command: mysql -u root -h 127.0.0.1 -D circle_test -e"SELECT Host, User, Password FROM mysql.user;"
+          command: mysql -u root -D circle_test -e"SELECT Host, User, Password FROM mysql.user;"
