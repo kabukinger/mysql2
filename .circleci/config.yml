@@ -10,7 +10,7 @@ jobs:
 
       - run:
           name: Greeting
-          command: echo Hello, world.
+          command: mysql -u root < check.sql
 
       - run:
           name: Print the Current Time
