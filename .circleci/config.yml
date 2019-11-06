@@ -14,6 +14,6 @@ jobs:
       - checkout
 
       - run:
-          command: ls; pwd; ls /usr/bin; ls /bin
+          command: ls; pwd; which mysqld; ls /usr/bin; ls /bin
       - run: 
           command: mysql -u root -D circle_test -e"SELECT Host, User, Password FROM mysql.user;"
