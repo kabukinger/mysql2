@@ -1,1 +1,1 @@
-aSELECT Host, User FROM mysql.user;
+SELECT Host, User FROM mysql.user;
