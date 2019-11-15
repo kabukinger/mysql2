@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/mysql:5.7-ram
+        #「-ram」を指定することでオンメモリで動作するコンテナを指定(章1-1-1)。Dockerイメージのバージョン変更時はこことDockerfileを変更(章1-2)。
         command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --innodb-large-prefix=true --innodb-file-format=Barracuda
         environment:
           MYSQL_USER: root
@@ -14,8 +15,10 @@ jobs:
       - checkout
       - run:
           command: apt-get update && apt-get -y install procps wget sudo
+          #dockerizeコマンドのインストール時に必要な各種コマンドを事前インストール(章1-1-2)
       - run:
           command: bash checkenv.sh
+          #コンテナ環境調査用シェルスクリプトを実行(章1-1-3)
       - run:
           name: Install dockerize
           command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
@@ -24,5 +27,7 @@ jobs:
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+          #MySQL起動完了済みになるまで待機。(章1-1-4)
       - run: 
           command: mysql -u root -h 127.0.0.1 -D circle_test < check.sql
+          #疎通確認用SQLを実行
