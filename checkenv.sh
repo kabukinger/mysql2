@@ -1,6 +1,6 @@
 #!bin/bash -v
 echo "### ls current dir ###"
-ls -a
+ls -aR
 echo "### current dir ###"
 pwd
 echo "### /usr/bin ###"
