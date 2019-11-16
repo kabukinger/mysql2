@@ -26,6 +26,7 @@ jobs:
             DOCKERIZE_VERSION: v0.6.1
       - save_cache:
           key: v1-{{ checksum ".circleci/config.yml" }}
+          paths: work/v1
       - checkout
       - run:
           command: bash checkenv.sh
